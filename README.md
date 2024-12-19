@@ -12,4 +12,4 @@ iOS의 경우 Camera에 대한 설명을 표기해야합니다.
 <img width="363" alt="image" src="https://github.com/user-attachments/assets/4e8f59d0-3dff-4de6-af90-b1ea65ada5dc" />
 
 # 샘플 (Android APK)
-![릴리즈](https://github.com/NK-Studio/Mobile-Camera-Webcam-TextureSample/releases/tag/1.0.0)에서 미리 체험해볼 수 있습니다.
+[릴리즈](https://github.com/NK-Studio/Mobile-Camera-Webcam-TextureSample/releases/tag/1.0.0)에서 미리 체험해볼 수 있습니다.
