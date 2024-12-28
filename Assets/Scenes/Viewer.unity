@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 6c10515fb2d0d43079c8e41748a39fd0, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: bd9ddee561a1a48b0a132d34d5942491, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 561687d3f3d3e4590b9849bb92ba4a9f, type: 3}
   m_SortingOrder: 0
@@ -185,65 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Landscape: {fileID: 11400000, guid: 6c10515fb2d0d43079c8e41748a39fd0, type: 2}
   Portrait: {fileID: 11400000, guid: bd9ddee561a1a48b0a132d34d5942491, type: 2}
---- !u!1 &1772083801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1772083804}
-  - component: {fileID: 1772083803}
-  - component: {fileID: 1772083802}
-  m_Layer: 0
-  m_Name: QR System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1772083802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772083801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cacdf61c8448842edb70ac6dd785cf22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1772083803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772083801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e41c0b2a386f4ca38f9653c65e5b6f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resultMode: 1
-  ScanDelay: 0.2
---- !u!4 &1772083804
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772083801}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1834177485
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,4 +515,3 @@ SceneRoots:
   - {fileID: 4354984795052763}
   - {fileID: 1900513761}
   - {fileID: 50661112}
-  - {fileID: 1772083804}
