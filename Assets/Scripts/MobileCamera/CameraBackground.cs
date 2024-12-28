@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace NKStudio
+namespace UniversalCamera
 {
     public class CameraBackground : MonoBehaviour
     {
@@ -11,23 +12,20 @@ namespace NKStudio
             /// 전면
             /// </summary>
             Front,
+
             /// <summary>
             /// 후면
             /// </summary>
             Back
         }
 
-        [SerializeField] private Transform planeTransform; // 3D 플랜의 Transform
-        [SerializeField] private Renderer planeRenderer; // 3D 플랜의 Renderer
-        
-        [SerializeField, Range(0, 60)]
-        [Tooltip("앱의 FPS가 아닙니다.\n카메라는 지원되는 가장 가까운 FPS를 사용합니다.\n0(0)은 기본적으로 값으로 이어집니다.")]
+        [SerializeField, Range(0, 60)] [Tooltip("앱의 FPS가 아닙니다.\n카메라는 지원되는 가장 가까운 FPS를 사용합니다.\n0(0)은 기본적으로 값으로 이어집니다.")]
         private int requestedFPS = 60;
 
-        [Tooltip("카메라의 방향을 선택합니다.")]
-        [SerializeField] private CameraFacing cameraFacingType = CameraFacing.Back;
+        [Tooltip("카메라의 방향을 선택합니다.")] [SerializeField]
+        private CameraFacing cameraFacingType = CameraFacing.Back;
 
-        private int _frontFacingCameraIndex;
+        [SerializeField] private string editorTestCameraName;
 
         private WebCamTexture _webCamTextureTarget;
         private WebCamTexture _webCamTextureBack;
@@ -37,8 +35,9 @@ namespace NKStudio
         private WebCamDevice _webCamDeviceTarget;
         private WebCamDevice _webCamDeviceBack;
         private WebCamDevice _webCamDeviceFront;
-        
+
         private Camera _camera;
+        private Renderer _planeRenderer; // 3D 플랜의 Renderer
 
         // Constants
         private const float PlaneDistance = 10f; // Plane과 카메라 사이의 거리
@@ -49,9 +48,15 @@ namespace NKStudio
         /// </summary>
         public float VideoRotationAngle => _webCamTextureTarget.videoRotationAngle;
 
+        public static CameraBackground Instance { get; private set; }
+
         private void Awake()
         {
             _camera = Camera.main;
+            _planeRenderer = GetComponent<Renderer>();
+
+            if (!Instance)
+                Instance = this;
 
             try
             {
@@ -61,12 +66,28 @@ namespace NKStudio
                     Debug.LogError("카메라 장치를 찾을 수 없습니다");
                 else
                 {
+                    var backFacingCameraIndex = 0;
+                    var frontFacingCameraIndex = 0;
+
+#if UNITY_EDITOR
+                    for (int i = 0; i < _webCamDevices.Length; i++)
+                    {
+                        if (_webCamDevices[i].name != editorTestCameraName) continue;        
+                        backFacingCameraIndex = i;
+                        break;
+                    }
+#else
+                        backFacingCameraIndex = 0;
+#endif
+
                     for (int i = 0; i < _webCamDevices.Length; i++)
                         if (_webCamDevices[i].isFrontFacing)
-                            _frontFacingCameraIndex = i;
-
-                    _webCamDeviceBack = _webCamDevices[0];
-                    _webCamDeviceFront = _webCamDevices[_frontFacingCameraIndex];
+                        {
+                            frontFacingCameraIndex = i;
+                        }
+                    
+                    _webCamDeviceBack = _webCamDevices[backFacingCameraIndex];
+                    _webCamDeviceFront = _webCamDevices[frontFacingCameraIndex];
 
                     switch (cameraFacingType)
                     {
@@ -88,7 +109,7 @@ namespace NKStudio
                     _webCamTextureTarget.Play();
 
                     // 플랜에 텍스처 적용
-                    planeRenderer.material.mainTexture = _webCamTextureTarget;
+                    _planeRenderer.material.mainTexture = _webCamTextureTarget;
 
                     // 포지션 변경
                     transform.localPosition = new Vector3(0f, 0f, PlaneDistance);
@@ -114,7 +135,7 @@ namespace NKStudio
                 if (!_webCamDeviceTarget.isFrontFacing)
                     calculateAngle = -VideoRotationAngle;
 
-                planeTransform.localEulerAngles = new Vector3(
+                transform.localEulerAngles = new Vector3(
                     90 + calculateAngle,
                     -90,
                     90);
@@ -129,19 +150,22 @@ namespace NKStudio
                 transform.localScale = IsPortrait
                     ? new Vector3(planeToCameraHeight, 1f, planeToCameraWidth)
                     : new Vector3(planeToCameraWidth, 1f, planeToCameraHeight);
-                
+
                 // 전면 카메라면 좌우 반전(옵션)
                 if (cameraFacingType == CameraFacing.Front)
                 {
                     var tempScale = transform.localScale;
+#if !UNITY_EDITOR
                     // 상하 반전
                     tempScale.x *= -1;
+#endif
+                    
 #if UNITY_IOS
                     // iOS에서 전면 카메라는 좌우 반전이 필요합니다.
                     tempScale.z *= -1;
 #endif
                     transform.localScale = tempScale;
-                }       
+                }
 
                 // 전면 카메라면 좌우 반전(옵션)
                 if (cameraFacingType == CameraFacing.Back)
@@ -151,7 +175,7 @@ namespace NKStudio
                     tempScale.z *= -1;
                     transform.localScale = tempScale;
 #endif
-                }   
+                }
             }
         }
 
@@ -180,6 +204,8 @@ namespace NKStudio
         {
             return new WebCamTexture(deviceName, Screen.width, Screen.height, fps);
         }
+
+        public WebCamTexture CameraBackgroundTexture => _webCamTextureTarget;
 
         private void OnDestroy()
         {

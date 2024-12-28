@@ -1,0 +1,29 @@
+.qr-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-group__box {
+    width: 500px;
+    height: 500px;
+}
+
+.logo-group {
+    left: 70px;
+    top: 70px;
+}
+
+.Logo {
+    background-image: url("project://database/Assets/Camera-Project/UI/Textures/U_Logo_Small_White_RGB_1C.png?fileID=2800000&guid=fe81981ff2c0b4a3ebfe296ed6df7473&type=3#U_Logo_Small_White_RGB_1C");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.Logo--Size {
+    width: 180px;
+    height: 70px;
+}

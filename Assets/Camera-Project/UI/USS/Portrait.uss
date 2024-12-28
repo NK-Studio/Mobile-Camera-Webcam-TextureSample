@@ -1,0 +1,26 @@
+.qr-group__box {
+    width: 600px;
+    height: 600px;
+}
+
+.logo-group {
+    align-self: center;
+    position: absolute;
+    top: 180px;
+}
+
+.Logo {
+    background-image: url("project://database/Assets/Camera-Project/UI/Textures/U_Logo_Small_White_RGB_1C.png?fileID=2800000&guid=fe81981ff2c0b4a3ebfe296ed6df7473&type=3#U_Logo_Small_White_RGB_1C");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.Logo--Size {
+    width: 467px;
+    height: 138px;
+}
+
+.qr-group {
+    flex-grow: 1;
+    align-self: center;
+    justify-content: center;
+}

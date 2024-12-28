@@ -1,8 +1,0 @@
-<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="root" style="flex-grow: 1; justify-content: flex-start; align-self: auto; align-items: center; align-content: auto; flex-direction: column-reverse;">
-        <engine:VisualElement picking-mode="Ignore" name="Logo-Icon" style="position: absolute; background-image: url(&quot;project://database/Assets/Camera-Project/UI/Textures/U_Logo_Small_White_RGB_1C.png?fileID=21300000&amp;guid=fe81981ff2c0b4a3ebfe296ed6df7473&amp;type=3#U_Logo_Small_White_RGB_1C&quot;); width: 347px; height: 136px; -unity-background-scale-mode: scale-to-fit; top: 200px;" />
-        <engine:VisualElement name="Record-Button" style="position: flex-start; width: 200px; height: 200px; background-color: rgb(255, 255, 255); border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%; background-size: 100% 100%; justify-content: center; top: auto; left: auto; right: auto; bottom: 220px; align-items: center;">
-            <engine:VisualElement picking-mode="Ignore" style="position: absolute; width: 115px; height: 115px; background-color: rgb(255, 0, 0); border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%;" />
-        </engine:VisualElement>
-    </engine:VisualElement>
-</engine:UXML>

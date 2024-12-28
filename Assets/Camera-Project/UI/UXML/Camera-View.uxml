@@ -1,0 +1,25 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="logo-group" class="logo-group">
+        <engine:VisualElement name="logo-group__icon" class="Logo Logo--Size" />
+    </engine:VisualElement>
+    <engine:VisualElement name="qr-group" class="qr-group">
+        <engine:VisualElement name="qr-group__box" class="qr-group__box">
+            <engine:VisualElement style="height: 150px; width: 150px; position: absolute;">
+                <engine:VisualElement style="height: 10px; background-color: rgb(255, 255, 255);" />
+                <engine:VisualElement style="height: auto; background-color: rgb(255, 255, 255); flex-direction: column-reverse; width: 10px; flex-shrink: 0; flex-grow: 1;" />
+            </engine:VisualElement>
+            <engine:VisualElement style="height: 150px; width: 150px; position: absolute; bottom: 0; rotate: 270deg;">
+                <engine:VisualElement style="height: 10px; background-color: rgb(255, 255, 255);" />
+                <engine:VisualElement style="height: auto; background-color: rgb(255, 255, 255); flex-direction: column-reverse; width: 10px; flex-shrink: 0; flex-grow: 1;" />
+            </engine:VisualElement>
+            <engine:VisualElement style="height: 150px; width: 150px; position: absolute; bottom: 0; rotate: 180deg; right: 0;">
+                <engine:VisualElement style="height: 10px; background-color: rgb(255, 255, 255);" />
+                <engine:VisualElement style="height: auto; background-color: rgb(255, 255, 255); flex-direction: column-reverse; width: 10px; flex-shrink: 0; flex-grow: 1;" />
+            </engine:VisualElement>
+            <engine:VisualElement style="height: 150px; width: 150px; position: absolute; right: 0; rotate: 90deg;">
+                <engine:VisualElement style="height: 10px; background-color: rgb(255, 255, 255);" />
+                <engine:VisualElement style="height: auto; background-color: rgb(255, 255, 255); flex-direction: column-reverse; width: 10px; flex-shrink: 0; flex-grow: 1;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
